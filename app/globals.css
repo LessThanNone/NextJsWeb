@@ -35,6 +35,22 @@ a {
   text-decoration: none;
 }
 
+#contact {
+  background: url(/images/contact.png);
+  background-size: cover;
+}
+
+
+#footer {
+  color: #262626;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+#footer ul li a:hover {
+  text-decoration: underline;
+}
+
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
