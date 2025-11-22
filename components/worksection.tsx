@@ -1,64 +1,78 @@
 'use client'
+import { Container, Row, Col, Button } from "react-bootstrap";
+import Carousel from 'react-bootstrap/Carousel';
 
-import Button  from "react-bootstrap/Button";
-import Card from 'react-bootstrap/Card';
-import { Container, Row, Col, CardTitle } from "react-bootstrap";
+const WorkSection = () => {
+    const works = [
+        {
+            title: "Shibuya Night",
+            img: "/images/japan-night.png",
+            desc: "Ritme malam Tokyo di Shibuya Crossing yang penuh cahaya neon, hiruk-pikuk yang tak pernah tidur.",
+        },
+        {
+            title: "Fuji & Lawson",
+            img: "/images/japan-lawson-fuji.png",
+            desc: "Kontras indah antara Gunung Fuji yang agung dan kehidupan sehari-hari di depan Lawson saat senja.",
+        },
+        {
+            title: "Coastal Passage",
+            img: "/images/japan-countryside.png",
+            desc: "Kereta melintasi garis pantai yang tenang, momen sederhana yang menyatu dengan keindahan alam Jepang.",
+        },
+    ];
 
-function WorkSection () {
     return (
-        <Container>
-            <Row className="mb-3">
-                <Col md={12} className="text-center">
-                    <h2>What We Work</h2>
-                    <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Explicabo, doloremque illum. Esse quos facilis quia numquam porro assumenda necessitatibus, iste dolores? Non alias vel, in consequatur quasi quibusdam et minus?</p>
-                </Col>
-            </Row>
-            <Row>
-                <Col md={4} className="mb-3">
-                    <Card>
-                        <Card.Img variant="top" src="/images/camera1.png"></Card.Img>
-                        <Card.Body>
-                            <CardTitle>
-                                Rice with wild boar.
-                            </CardTitle>
-                            <Card.Text>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis voluptas natus at. Sequi beatae esse pariatur corporis at neque, ipsum recusandae hic. Repellat repudiandae saepe, tempora commodi soluta dicta dolorem.
-                            </Card.Text>
-                            <Button variant="primary">Read More</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                                <Col md={4} className="mb-3">
-                    <Card>
-                        <Card.Img variant="top" src="/images/camera2.png"></Card.Img>
-                        <Card.Body>
-                            <CardTitle>
-                                Rice with wild boar.
-                            </CardTitle>
-                            <Card.Text>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis voluptas natus at. Sequi beatae esse pariatur corporis at neque, ipsum recusandae hic. Repellat repudiandae saepe, tempora commodi soluta dicta dolorem.
-                            </Card.Text>
-                            <Button variant="primary">Read More</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                                <Col md={4} className="mb-3">
-                    <Card>
-                        <Card.Img variant="top" src="/images/camera3.png"></Card.Img>
-                        <Card.Body>
-                            <CardTitle>
-                                Rice with wild boar.
-                            </CardTitle>
-                            <Card.Text>
-                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Officiis voluptas natus at. Sequi beatae esse pariatur corporis at neque, ipsum recusandae hic. Repellat repudiandae saepe, tempora commodi soluta dicta dolorem.
-                            </Card.Text>
-                            <Button variant="primary">Read More</Button>
-                        </Card.Body>
-                    </Card>
-                </Col>
-            </Row>
-        </Container>
-    )
-}
+        <>
+            <section id="portfolio" className="work-section py-5 position-relative">
+                <Container>
+                    <Row className="mb-5 text-center section-header a">
+                        <Col md={8} className="mx-auto">
+                            <h2 className="display-4 fw-bold mb-3" style={{
+                                background: 'linear-gradient(135deg, #ffffff 0%, var(--primary-cyan) 100%)',
+                                WebkitBackgroundClip: 'text',
+                                WebkitTextFillColor: 'transparent',
+                                backgroundClip: 'text'
+                            }}>
+                                Karya Pilihan
+                            </h2>
+                            <p className="lead text-white">
+                                Koleksi momen terbaik dari perjalanan saya di Jepang.
+                            </p>
+                        </Col>
+                    </Row>
+
+                    <div className="carousel-container animate-fade-in" style={{ animationDelay: '0.3s' }}>
+                        <Carousel 
+                            fade 
+                            interval={5000} 
+                            className="custom-carousel"
+                        >
+                            {works.map((work, index) => (
+                                <Carousel.Item key={index}>
+                                    <div className="carousel-image-wrapper">
+                                        <img src={work.img} alt={work.title} />
+                                        
+                                        <div className="carousel-content">
+                                            <h2 className="carousel-title">{work.title}</h2>
+                                            <p className="carousel-description">
+                                                {work.desc}
+                                            </p>
+                                            <div className="carousel-cta">
+                                                <Button className="cta-detail-button">
+                                                    <span>Lihat Detail</span>
+                                                    <i className="bi bi-arrow-right"></i>
+                                                </Button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </Carousel.Item>
+                            ))}
+                        </Carousel>
+                    </div>
+                </Container>
+            </section>
+        </>
+    );
+};
 
 export default WorkSection;
