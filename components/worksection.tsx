@@ -1,6 +1,7 @@
 'use client'
 import { Container, Row, Col, Button } from "react-bootstrap";
 import Carousel from 'react-bootstrap/Carousel';
+import Image from "next/image";
 
 const WorkSection = () => {
     const works = [
@@ -50,8 +51,14 @@ const WorkSection = () => {
                             {works.map((work, index) => (
                                 <Carousel.Item key={index}>
                                     <div className="carousel-image-wrapper">
-                                        <img src={work.img} alt={work.title} />
-                                        
+                                        <Image 
+                                            src={work.img} 
+                                            alt={work.title}
+                                            fill 
+                                            className="object-fit-cover"
+                                            sizes="(max-width: 768px) 100vw, 80vw"
+                                            priority={index === 0} 
+                                        />
                                         <div className="carousel-content">
                                             <h2 className="carousel-title">{work.title}</h2>
                                             <p className="carousel-description">
