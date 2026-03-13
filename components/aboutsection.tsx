@@ -1,7 +1,6 @@
 'use client'
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { useState } from "react";
-import Image from "next/image";
 
 const AboutSection = () => {
     const [imageLoaded, setImageLoaded] = useState(false);
@@ -20,13 +19,11 @@ const AboutSection = () => {
                         <div className="position-relative">
                             <div className="image-frame">
                                 <div className="image-container">
-                                    <Image 
+                                    <img 
                                         src="/images/photo-profile.png"
                                         alt="Photographer Profile"
-                                        fill
+                                        style={{width: '100%', height: '100%', objectFit: 'cover'}}
                                         className="object-fit-cover"
-                                        sizes="(max-width: 768px) 100vw, 50vw"
-                                        priority
                                         onLoad={() => setImageLoaded(true)}
                                     />
                                 </div>
